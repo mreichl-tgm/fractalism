@@ -16,7 +16,7 @@ function drawLine(x1, y1, x2, y2){
 
 function drawTree (angle, split, depth, size) {
     canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight - 100;
+    canvas.height = document.body.clientHeight - 150;
 
     var x1 = canvas.width / 2;
     var y1 = 0;
@@ -42,6 +42,8 @@ function init() {
 
     context.beginPath();
     drawTree(angle, split, depth, size);
+    context.fillStyle = "#333";
+    context.fillRect(0, 0, canvas.width, canvas.height);
     context.strokeStyle = "#fff";
     context.stroke();
     context.closePath();
