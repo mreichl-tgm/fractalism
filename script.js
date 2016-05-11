@@ -46,3 +46,12 @@ function init() {
     context.stroke();
     context.closePath();
 }
+
+function setRandom() {
+    inputAngle.value = Math.floor((Math.random() * 180) + 0);
+    inputSplit.value = Math.floor((Math.random() * 360) + 0);
+    inputDepth.value = Math.floor((Math.random() * 20) + 1);
+    inputSize.value = Math.floor((Math.random() * 20) + 1);
+
+    init();
+}

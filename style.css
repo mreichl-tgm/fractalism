@@ -1,6 +1,7 @@
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 html, body {
@@ -22,19 +23,27 @@ body {
 }
 
 .panel {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100px;
     background-color: #fff;
-    padding: 1em 2em;
 }
 
 .input-panel {
-    display: inline-block;
+    float: left;
+    margin: 2em;
 }
 
 .input-panel input {
+    width: 5em;
     border: none;
     background-color: transparent;
     font-size: 1.5em;
-    width: 5em;
+}
+
+.input-panel a, .input-panel a:hover, .input-panel a:visited {
+    text-decoration: underline;
+    color: black;
 }

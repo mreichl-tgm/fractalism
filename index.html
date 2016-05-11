@@ -10,10 +10,33 @@
 <canvas id="canvas"></canvas>
 
 <div class="panel">
-    <div class="input-panel">Angle <input id="angle" type="text" value="90" onchange="init()"></div>
-    <div class="input-panel">Split <input id="split" type="text" value="30" onchange="init()"></div>
-    <div class="input-panel">Depth <input id="depth" type="text" value="15" onchange="init()"></div>
-    <div class="input-panel">Size <input id="size" type="text" value="10" onchange="init()"></div>
+    <div class="input-panel">
+        <label for="angle">Angle</label>
+        <input id="angle" type="range" min="0" max="360" value="90" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <label for="split">Split</label>
+        <input id="split" type="range" min="0" max="360" value="30" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <label for="depth">Depth</label>
+        <input id="depth" type="range" min="0" max="20" value="15" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <label for="size">Size </label>
+        <input id="size"  type="range" min="0" max="40" value="10" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <a href="#" onclick="setRandom()">Random</a>
+    </div>
+
+    <div class="input-panel">
+        <a href="">Default</a>
+    </div>
 </div>
 
 </body>
