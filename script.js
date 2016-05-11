@@ -17,8 +17,8 @@ function drawLine(x1, y1, x2, y2){
 }
 
 function drawTree (angle, split, depth, size) {
-    canvas.width = calcSize(depth, size);
-    canvas.height = calcSize(depth, size);
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 
     var x1 = canvas.width / 2;
     var y1 = 0;
