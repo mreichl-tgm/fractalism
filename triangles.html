@@ -31,27 +31,33 @@
         var x2 = canvas.width / 2 + size / 2;
         var y2 = 0;
 
+        /*
+        Ey Bruddah, here is se problehm
+        Haschte vergessen den Winkel amk, ...
+         */
+
         function paint (x1, y1, x2, y2, depth, size) {
             if (depth > 0){
                 // top
-                var x3 = x1 + size/2;
-                var y3 = y1 + size/2;
+                var x3 = (x1 + x2) / 2;
+                var y3 = (y1 + y2) / 2 + size/2;
 
+                drawLine(x1, y1, x2, y2);
                 drawLine(x1, y1, x3, y3);
                 drawLine(x2, y2, x3, y3);
                 // left
-                paint(x1, y1, x3, y3, depth - 1);
+                paint(x1, y1, x3, y3, depth - 1, size);
                 // right
-                paint(x2, y2, x3, y3, depth - 1);
+                paint(x2, y2, x3, y3, depth - 1, size);
             }
         }
 
-        paint(x1, y1, x2, y2, depth);
+        paint(x1, y1, x2, y2, depth, size);
     }
 
     function init() {
         context.beginPath();
-        drawTriangles(10, 20);
+        drawTriangles(2, 50);
         //context.fillStyle = "#333";
         //context.fillRect(0, 0, canvas.width, canvas.height);
         context.strokeStyle = "#fff";
