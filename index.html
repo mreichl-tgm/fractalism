@@ -9,39 +9,6 @@
 <body>
 <canvas id="canvas"></canvas>
 
-<script type="text/javascript">
-    var canvas = document.getElementById('canvas');
-    var context = canvas.getContext('2d');
-
-    function rad(x) { return x * Math.PI / 180.0; }
-
-    function drawLine(x1, y1, x2, y2){
-        context.moveTo(x1, y1);
-        context.lineTo(x2, y2);
-    }
-
-    function drawTree (angle, split, depth, size) {
-        canvas.width = split * depth * size / 2;
-        canvas.height = split * depth * size / 2;
-
-        let x1 = canvas.width / 2;
-        let y1 = 0;
-
-        function iterate(x1, y1, angle, depth) {
-            if (depth != 0){
-                let x2 = x1 + (Math.cos(rad(angle)) * depth * size);
-                let y2 = y1 + (Math.sin(rad(angle)) * depth * size);
-                drawLine(x1, y1, x2, y2, depth);
-                iterate(x2, y2, angle - split, depth - 1);
-                iterate(x2, y2, angle + split, depth - 1);
-            }
-        }
-
-        iterate(x1, y1, angle, depth);
-    }
-
-    drawTree(90, 30, 10, 10);
-    context.stroke();
-</script>
+<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
