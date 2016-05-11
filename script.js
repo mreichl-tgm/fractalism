@@ -1,7 +1,15 @@
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
-function rad(x) { return x * Math.PI / 180.0; }
+function rad(n) { return n * Math.PI / 180.0; }
+
+function calcSize(d, s) {
+    var x = 0;
+    for (var i = 0; i < d; i++) {
+        x += (d-i);
+    }
+    return x * s / 2 * Math.PI;
+}
 
 function drawLine(x1, y1, x2, y2){
     context.moveTo(x1, y1);
@@ -9,8 +17,8 @@ function drawLine(x1, y1, x2, y2){
 }
 
 function drawTree (angle, split, depth, size) {
-    canvas.width = depth * angle;
-    canvas.height = depth * split * 2;
+    canvas.width = calcSize(depth, size);
+    canvas.height = calcSize(depth, size);
 
     var x1 = canvas.width / 2;
     var y1 = 0;
@@ -29,4 +37,4 @@ function drawTree (angle, split, depth, size) {
     context.stroke();
 }
 
-drawTree(90, 30, 10, 10);
+drawTree(90, 30, 20, 10);
