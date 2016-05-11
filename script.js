@@ -9,8 +9,8 @@ function drawLine(x1, y1, x2, y2){
 }
 
 function drawTree (angle, split, depth, size) {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.width = document.body.clientWidth;
+    canvas.height = document.body.clientHeight;
 
     context.fillStyle = "#FF0";
 
@@ -30,7 +30,7 @@ function drawTree (angle, split, depth, size) {
     paint(x1, y1, angle, depth);
 }
 
-context.beginPath();
-drawTree(90, 30, 10, 10);
-context.stroke();
-context.closePath();
+function init() {
+    drawTree(90, 30, 20, 10);
+    context.stroke();
+}
