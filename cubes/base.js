@@ -1,5 +1,5 @@
 var camera, controls, scene, renderer;
-var material;
+var material, light;
 
 function init() {
     // scene
@@ -21,6 +21,7 @@ function init() {
     controls.dynamicDampingFactor = 0.3;
     controls.keys = [ 65, 83, 68 ];
     controls.addEventListener( 'change', render );
+
 
     /* INVOCATIONS */
     drawCube(3, 2, 4);
