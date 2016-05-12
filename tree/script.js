@@ -23,13 +23,18 @@ function init() {
     controls.addEventListener( 'change', render );
 
     material = new THREE.MeshBasicMaterial( { wireframe: true } );
-    drawCube(0, 0, 0, 4, 2, 5);
+    drawCube(0, 0, 0, 4, 2, 4);
 
     document.body.appendChild(renderer.domElement);
 
-
     render();
+}
+
+function animate() {
+
+    requestAnimationFrame( animate );
     controls.update();
+
 }
 
 function render() {
@@ -57,3 +62,4 @@ function drawCube(x, y, z, size, split, depth) {
 }
 
 init();
+animate();
