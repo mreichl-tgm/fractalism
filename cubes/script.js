@@ -22,7 +22,7 @@ function init() {
 
     controls.addEventListener( 'change', render );
 
-    material = new THREE.MeshBasicMaterial( { wireframe: true } );
+    material = new THREE.MeshBasicMaterial( { border: "1px white solid" } );
     drawCube(0, 0, 0, 4, 2, 4);
 
     document.body.appendChild(renderer.domElement);
@@ -44,21 +44,26 @@ function render() {
 
 
 function drawCube(x, y, z, size, split, depth) {
-    var geometry = new THREE.BoxGeometry( size, size, size );
-    var cube = new THREE.Mesh( geometry, material );
-    x = cube.position.x = x;
-    y = cube.position.y = y;
-    z = cube.position.z = z;
-    scene.add(cube);
-    depth-=1;
-    if (depth > 0) {
-        drawCube(x + 3*size/split/2, y, z, size/split, split, depth);
-        drawCube(x - 3*size/split/2, y, z, size/split, split, depth);
-        drawCube(x, y + 3*size/split/2, z, size/split, split, depth);
-        drawCube(x, y - 3*size/split/2, z, size/split, split, depth);
-        drawCube(x, y, z + 3*size/split/2, size/split, split, depth);
-        drawCube(x, y, z - 3*size/split/2, size/split, split, depth);
+    function paint(x, y, z, size, depth) {
+        var cube = new THREE.Mesh( new THREE.BoxGeometry( size, size, size ) );
+
+        x = cube.position.x = x;
+        y = cube.position.y = y;
+        z = cube.position.z = z;
+        scene.add(cube);
+        depth--;
+
+        if (depth > 0) {
+            paint(x + 3*size/split/2, y, z, size/split, depth);
+            paint(x - 3*size/split/2, y, z, size/split, depth);
+            paint(x, y + 3*size/split/2, z, size/split, depth);
+            paint(x, y - 3*size/split/2, z, size/split, depth);
+            paint(x, y, z + 3*size/split/2, size/split, depth);
+            paint(x, y, z - 3*size/split/2, size/split, depth);
+        }
     }
+
+    paint(x, y, z, size, depth);
 }
 
 init();
