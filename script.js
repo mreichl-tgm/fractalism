@@ -12,7 +12,7 @@ function init() {
     drawTree();
 
 
-    context.fillStyle = "#333";
+    context.fillStyle = "#000";
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.strokeStyle = "#fff";
     context.stroke();
