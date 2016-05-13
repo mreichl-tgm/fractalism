@@ -1,4 +1,8 @@
-function drawCube(size, split, depth) {
+function drawCube() {
+    var split = parseInt(document.getElementById("split").value);
+    var depth = parseInt(document.getElementById("depth").value);
+    var size = parseInt(document.getElementById("size").value);
+    
     var material = new THREE.MeshBasicMaterial( { wireframe: true } );
 
     function paint(x, y, z, size, depth) {

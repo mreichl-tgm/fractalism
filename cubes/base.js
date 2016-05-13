@@ -2,19 +2,12 @@ var camera, controls, scene, renderer;
 var material, light;
 
 var container = document.getElementById("container");
-var inputSize = document.getElementById("size");
-var inputSplit = document.getElementById("split");
-var inputDepth = document.getElementById("depth");
 
 var firstInit = true;
 
 function init() {
     if (!firstInit) container.removeChild(renderer.domElement);
     else firstInit = false;
-
-    var split = parseInt(inputSplit.value);
-    var depth = parseInt(inputDepth.value);
-    var size = parseInt(inputSize.value);
     // scene
     scene = new THREE.Scene();
     // camera
@@ -36,7 +29,7 @@ function init() {
 
 
     /* INVOCATIONS */
-    drawCube(size, split, depth);
+    drawCube();
 
 
     // final rendering
