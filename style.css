@@ -15,9 +15,7 @@ body {
     background-color: #333;
 }
 
-#container {
-    height: 85%;
-}
+#container {  height: 85%;  }
 
 #panel, #footer {
     display: inline-flex;
@@ -27,18 +25,14 @@ body {
     background-color: #fff;
 }
 
-#panel {
-    height: 10%;
-}
+#panel {  height: 10%;  }
 
 #footer {
     bottom: 0;
     height: 5%;
 }
 
-.input-panel {
-    margin: 2em;
-}
+.input-panel {  margin: 2em;  }
 
 .input-panel input {
     width: 5em;

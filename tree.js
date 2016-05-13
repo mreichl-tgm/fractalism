@@ -1,3 +1,16 @@
+/**
+ * @author Markus Reichl
+ * @version 2016-05-13
+ * @licence GPLv3
+ *
+ * Creates a tree fractal where 1 branch splits into 2 new branches
+ * Content is fetched from 4 input fields with a specific id:
+ *  - Angle     Starting angle (branch rotation)
+ *  - Split     Angle between 2 branches
+ *  - Depth     Number of iterations
+ *  - Size      Size of the first branch
+ */
+
 var inputAngle = document.getElementById("angle");
 var inputSplit = document.getElementById("split");
 var inputDepth = document.getElementById("depth");
