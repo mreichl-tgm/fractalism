@@ -1,7 +1,14 @@
 var camera, controls, scene, renderer;
 var material, light;
 
+var inputSize = document.getElementById("size");
+var inputSplit = document.getElementById("split");
+var inputDepth = document.getElementById("depth");
+
 function init() {
+    var split = parseInt(inputSplit.value);
+    var depth = parseInt(inputDepth.value);
+    var size = parseInt(inputSize.value);
     // scene
     scene = new THREE.Scene();
     // camera
@@ -9,7 +16,7 @@ function init() {
     camera.position.z = 5;
     // renderer
     renderer = new THREE.WebGLRenderer();
-    renderer.setSize(document.body.clientWidth, document.body.clientHeight);
+    renderer.setSize(document.body.clientWidth, document.body.clientHeight - 150);
     // camera control
     controls = new THREE.TrackballControls( camera );
     controls.rotateSpeed = 2;
@@ -24,12 +31,13 @@ function init() {
 
 
     /* INVOCATIONS */
-    drawCube(3, 2, 4);
+    drawCube(size, split, depth);
 
 
     // final rendering
     document.body.appendChild(renderer.domElement);
     render();
+    animate();
 }
 
 function animate() {
@@ -42,5 +50,10 @@ function render() {
     renderer.render( scene, camera );
 }
 
-init();
-animate();
+function setRandom() {
+    inputSize.value = Math.floor((Math.random() * 20) + 1);
+    inputSplit.value = Math.floor((Math.random() * 20) + 1);
+    inputDepth.value = Math.floor((Math.random() * 6) + 1);
+
+    init();
+}
