@@ -24,3 +24,11 @@ function drawCube(size, split, depth) {
 
     paint(0, 0, 0, size, depth);
 }
+
+function setRandom() {
+    inputSize.value = Math.floor((Math.random() * 10) + 1);
+    inputSplit.value = Math.floor((Math.random() * 5) + 1);
+    inputDepth.value = Math.floor((Math.random() * 5) + 1);
+
+    init();
+}

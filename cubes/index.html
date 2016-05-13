@@ -7,20 +7,20 @@
     <link rel="stylesheet" href="../style.css">
 </head>
 <body onload="init()" onresize="init()">
-<div class="panel">
+<div id="panel">
     <div class="input-panel">
-        <label for="size">Angle</label>
-        <input id="size" type="range" min="0" max="20" value="10" onchange="init()">
+        <label for="size">Size</label>
+        <input id="size" type="range" min="1" max="10" value="5" onchange="init()">
     </div>
 
     <div class="input-panel">
         <label for="split">Split</label>
-        <input id="split" type="range" min="0" max="20" value="10" onchange="init()">
+        <input id="split" type="number" value="2" onchange="init()">
     </div>
 
     <div class="input-panel">
         <label for="depth">Depth</label>
-        <input id="depth" type="range" min="0" max="6" value="4" onchange="init()">
+        <input id="depth" type="range" min="1" max="4" value="4" onchange="init()">
     </div>
 
     <div class="input-panel">
@@ -32,9 +32,13 @@
     </div>
 </div>
 
-<div class="footer">
+<div id="container">
+
+</div>
+
+<div id="footer">
     <div class="input-panel">
-        <a href="#" id="download" onclick="canvas.toDataURL('image/png')" download="image.png">Save .png</a>
+        <a href="https://github.com/re1/re1s-fractalism">Github</a>
     </div>
 </div>
 

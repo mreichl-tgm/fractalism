@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body onload="init()" onresize="init()">
-<canvas></canvas>
+<canvas id="canvas"></canvas>
 
-<div class="panel">
+<div id="panel">
     <div class="input-panel">
         <label for="angle">Angle</label>
         <input id="angle" type="range" min="0" max="360" value="90" onchange="init()">
@@ -39,7 +39,7 @@
     </div>
 </div>
 
-<div class="footer">
+<div id="footer">
     <div class="input-panel">
         <a href="#" id="download" onclick="canvas.toDataURL('image/png')" download="image.png">Save .png</a>
     </div>
