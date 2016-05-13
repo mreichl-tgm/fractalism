@@ -1,7 +1,23 @@
+/**
+ * @author Markus Reichl
+ * @version 2016-05-13
+ * @licence GPLv3
+ *
+ * Creates a cube fractal where every cube has another cube attached on each side.
+ * Content is fetched from 3 input fields with a specific id:
+ *  - Split     A new cubes size is equal to size/split
+ *  - Depth     Number of iterations
+ *  - Size      Size of the first cube
+ */
+
+var inputSize = document.getElementById("size");
+var inputSplit = document.getElementById("split");
+var inputDepth = document.getElementById("depth");
+
 function drawCube() {
-    var split = parseInt(document.getElementById("split").value);
-    var depth = parseInt(document.getElementById("depth").value);
-    var size = parseInt(document.getElementById("size").value);
+    var split = parseInt(inputSplit.value);
+    var depth = parseInt(inputDepth.value);
+    var size = parseInt(inputSize.value);
     
     var material = new THREE.MeshBasicMaterial( { wireframe: true } );
 

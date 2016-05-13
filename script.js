@@ -1,4 +1,5 @@
 var container = document.getElementById("container");
+
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
@@ -15,9 +16,11 @@ function drawLine(x1, y1, x2, y2){
     context.lineTo(x2, y2);
 }
 
-function drawTree (angle, split, depth, size) {
-    canvas.width = container.clientWidth;
-    canvas.height = container.clientHeight;
+function drawTree () {
+    var angle = parseInt(inputAngle.value);
+    var split = parseInt(inputSplit.value);
+    var depth = parseInt(inputDepth.value);
+    var size = parseInt(inputSize.value);
 
     var x1 = canvas.width / 2;
     var y1 = 0;
@@ -36,18 +39,18 @@ function drawTree (angle, split, depth, size) {
 }
 
 function init() {
-    var angle = parseInt(inputAngle.value);
-    var split = parseInt(inputSplit.value);
-    var depth = parseInt(inputDepth.value);
-    var size = parseInt(inputSize.value);
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
 
-    context.beginPath();
-    drawTree(angle, split, depth, size);
+
+    /* INVOCATIONS */
+    drawTree();
+
+
     context.fillStyle = "#333";
     context.fillRect(0, 0, canvas.width, canvas.height);
     context.strokeStyle = "#fff";
     context.stroke();
-    context.closePath();
 }
 
 function setRandom() {
