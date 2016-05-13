@@ -21,11 +21,11 @@ function init() {
     camera = new THREE.PerspectiveCamera(60, container.clientWidth / container.clientHeight, 1, 1000);
     camera.position.z = 5;
     // renderer
-    renderer = new THREE.WebGLRenderer();
+    renderer = new THREE.WebGLRenderer( {antialias: false } );
     renderer.setSize(container.clientWidth, container.clientHeight);
     // camera control
     controls = new THREE.TrackballControls( camera, container );
-    controls.rotateSpeed = 2;
+    controls.rotateSpeed = 1;
     controls.zoomSpeed = 2;
     controls.panSpeed = 0.8;
     controls.noZoom = false;
@@ -33,7 +33,6 @@ function init() {
     controls.staticMoving = true;
     controls.dynamicDampingFactor = 0.3;
     controls.keys = [ 65, 83, 68 ];
-    controls.addEventListener( 'change', render );
 
 
     /* INVOCATIONS */

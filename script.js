@@ -1,3 +1,4 @@
+var container = document.getElementById("container");
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 
@@ -15,8 +16,8 @@ function drawLine(x1, y1, x2, y2){
 }
 
 function drawTree (angle, split, depth, size) {
-    canvas.width = document.body.clientWidth;
-    canvas.height = document.body.clientHeight - 150;
+    canvas.width = container.clientWidth;
+    canvas.height = container.clientHeight;
 
     var x1 = canvas.width / 2;
     var y1 = 0;
