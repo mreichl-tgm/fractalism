@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fractalism | Trees</title>
+
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body onload="init()" onresize="init()">
+<div id="panel">
+    <div class="input-panel">
+        <label for="angle">Angle</label>
+        <input id="angle" type="number" min="0" max="360" value="60" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <label for="split">Split</label>
+        <input id="split" type="number" min="0" max="6" value="2" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <label for="depth">Depth</label>
+        <input id="depth" type="number" min="0" max="18" value="15" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <label for="size">Size </label>
+        <input id="size"  type="number" min="0" max="100" value="10" onchange="init()">
+    </div>
+
+    <div class="input-panel">
+        <a href="#" onclick="setRandom()">Random</a>
+    </div>
+
+    <div class="input-panel">
+        <a href="">Default</a>
+    </div>
+</div>
+
+<div id="container">
+    <canvas id="canvas"></canvas>
+</div>
+
+<div id="footer">
+    <div class="input-panel">
+        <a href="https://github.com/re1/re1s-fractalism">Github</a>
+    </div>
+
+    <div class="input-panel">
+        <a href="cubes/index.html">Fractalism - Cubes</a>
+    </div>
+</div>
+
+<script src="trees/tree.js"></script>
+<script src="trees/canvas-base.js"></script>
+</body>
+</html>
