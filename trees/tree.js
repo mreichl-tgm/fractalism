@@ -25,13 +25,16 @@ function drawLine(x1, y1, x2, y2){
 
 function drawTree () {
     var angle = parseInt(inputAngle.value);
-    var split = parseInt(inputSplit.value) + 1;
+    var split = parseInt(inputSplit.value);
     var depth = parseInt(inputDepth.value);
     var size = parseInt(inputSize.value);
 
     var x1 = canvas.width / 2;
     var y1 = 0;
     var rotation = 90;
+
+    if (split * depth > 31 && split > 2) if (!confirm("Site may crash!")) return;
+    split += 1;
 
     function paint (x1, y1, rotation, depth) {
         if (depth != 0) {
