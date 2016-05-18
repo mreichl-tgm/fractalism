@@ -15,14 +15,26 @@ var inputAngle = document.getElementById("angle");
 var inputSplit = document.getElementById("split");
 var inputDepth = document.getElementById("depth");
 var inputSize = document.getElementById("size");
-
+/**
+ * Returns given number in radians
+ * @param n
+ * @return {number}
+ */
 function rad(n) { return n * Math.PI / 180.0; }
-
+/**
+ * Draws a line from [x1|y1] to [x2|y2]
+ * @param x1
+ * @param y1
+ * @param x2
+ * @param y2
+ */
 function drawLine(x1, y1, x2, y2){
     context.moveTo(x1, y1);
     context.lineTo(x2, y2);
 }
-
+/**
+ * Initializes tree painting
+ */
 function drawTree () {
     var angle = parseInt(inputAngle.value);
     var split = parseInt(inputSplit.value);
@@ -35,7 +47,13 @@ function drawTree () {
 
     if (split * depth > 31 && split > 2) if (!confirm("Site may crash!")) return;
     split += 1;
-
+    /**
+     * Paints our tree using 2 starting points and the current angle as rotation
+     * @param x1
+     * @param y1
+     * @param rotation
+     * @param depth
+     */
     function paint (x1, y1, rotation, depth) {
         if (depth != 0) {
             var x2 = x1 + (Math.cos(rad(rotation)) * depth * size);
@@ -50,7 +68,9 @@ function drawTree () {
 
     paint(x1, y1, rotation, depth);
 }
-
+/**
+ * Sets random values to input fields and redraws tree
+ */
 function setRandom() {
     inputAngle.value = Math.floor((Math.random() * 360));
 
