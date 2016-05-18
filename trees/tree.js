@@ -5,8 +5,8 @@
  *
  * Creates a tree fractal where 1 branch splits into 2 new branches
  * Content is fetched from 4 input fields with a specific id:
- *  - Angle     Starting angle (branch rotation)
- *  - Split     Angle between 2 branches
+ *  - Angle     Angle between 2 branches
+ *  - Split     Number of branches
  *  - Depth     Number of iterations
  *  - Size      Size of the first branch
  */
@@ -33,12 +33,14 @@ function drawTree () {
     var y1 = 0;
 
     function paint (x1, y1, angle, depth) {
-        if (depth != 0){
+        if (depth != 0) {
             var x2 = x1 + (Math.cos(rad(angle)) * depth * size);
             var y2 = y1 + (Math.sin(rad(angle)) * depth * size);
             drawLine(x1, y1, x2, y2, depth);
-            paint(x2, y2, angle - split, depth - 1);
-            paint(x2, y2, angle + split, depth - 1);
+            var max = 5;
+            for (var i = 1; i < max; i++) {
+                paint(x2, y2, angle - split * max / 2 + split * i, depth - 1);
+            }
         }
     }
 
@@ -46,8 +48,8 @@ function drawTree () {
 }
 
 function setRandom() {
-    inputAngle.value = Math.floor((Math.random() * 180));
-    inputSplit.value = Math.floor((Math.random() * 360));
+    inputAngle.value = Math.floor((Math.random() * 360));
+    inputSplit.value = Math.floor((Math.random() * 6));
     inputDepth.value = Math.floor((Math.random() * 20) + 1);
     inputSize.value = Math.floor((Math.random() * 20) + 1);
 
