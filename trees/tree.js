@@ -25,33 +25,38 @@ function drawLine(x1, y1, x2, y2){
 
 function drawTree () {
     var angle = parseInt(inputAngle.value);
-    var split = parseInt(inputSplit.value);
+    var split = parseInt(inputSplit.value) + 1;
     var depth = parseInt(inputDepth.value);
     var size = parseInt(inputSize.value);
 
     var x1 = canvas.width / 2;
     var y1 = 0;
+    var rotation = 90;
 
-    function paint (x1, y1, angle, depth) {
+    function paint (x1, y1, rotation, depth) {
         if (depth != 0) {
-            var x2 = x1 + (Math.cos(rad(angle)) * depth * size);
-            var y2 = y1 + (Math.sin(rad(angle)) * depth * size);
+            var x2 = x1 + (Math.cos(rad(rotation)) * depth * size);
+            var y2 = y1 + (Math.sin(rad(rotation)) * depth * size);
             drawLine(x1, y1, x2, y2, depth);
-            var max = 5;
-            for (var i = 1; i < max; i++) {
-                paint(x2, y2, angle - split * max / 2 + split * i, depth - 1);
+
+            for (var i = 1; i < split; i++) {
+                paint(x2, y2, rotation - angle * split / 2 + angle * i, depth - 1);
             }
         }
     }
 
-    paint(x1, y1, angle, depth);
+    paint(x1, y1, rotation, depth);
 }
 
 function setRandom() {
     inputAngle.value = Math.floor((Math.random() * 360));
-    inputSplit.value = Math.floor((Math.random() * 6));
-    inputDepth.value = Math.floor((Math.random() * 20) + 1);
-    inputSize.value = Math.floor((Math.random() * 20) + 1);
+
+    do {
+        inputSplit.value = Math.floor((Math.random() * 6) + 2);
+        inputDepth.value = Math.floor((Math.random() * 15) + 2);
+    } while (inputDepth.value * inputSplit.value > 30);
+
+    inputSize.value = Math.floor((Math.random() * inputDepth.value * inputSplit.value) + Math.random() * 20);
 
     init();
 }
